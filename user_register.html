@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Register</title>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="user_register.css" rel="stylesheet" type="text/css">
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Create New Account</h1>
+            <form action="user_register.php" method="post">
+                <hr>
+
+                <label for="name"><b>Username</b></label>
+                <input type="text" placeholder="Enter name" name="name" required>
+                
+                <label for="contact" ><b>Contact</b></label>
+                <input type="tel" placeholder="Contact Number" name="contact" pattern="[0-9]{3}-[0-9]{7,8}" required>
+                
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Email" name="email" required>
+
+                <label for="password"><b>Password</b></label>
+                <input type="password" placeholder="Password" name="password" id="password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                title="Must contain at least one  number and one uppercase letter, and at least 8 or more characters" required>
+                
+                <label for="confirm_password"><b>Confirm Password</b></label>
+                <input type="password" name ="confirm_password" placeholder="Confirm Password" id="confirm_password" required><br><br>
+                
+                </select>
+
+                <button type="submit" id="submit">Register Now</button>
+                <br>
+
+                <script>
+                    var password1 = document.getElementById("password");
+                    var password2 = document.getElementById("confirm_password");
+                    var submit = document.getElementById("submit");
+                
+                    submit.onclick = function() 
+                        {
+                            if (password1.value !== password2.value) 
+                                {
+                                    alert("Error! Confirm password does not match");
+                                    return false;
+                                }
+                        }
+                </script>
+                <p>Already have an account?</p>
+                <a href="user_login.html" class="option-btn">login now</a>
+            </form>
+        </div>
+    </body>
+</html>
